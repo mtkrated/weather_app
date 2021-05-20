@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import City from "../City/City";
 
-const Input = ({ onChange, search, data, isSuccess, setCity, handleSubmit }) => {
+const Input = ({ onChange, search, data, isSuccess, setCity, handleSubmit, showCityList }) => {
 	const handleClick = ({ target }) => {
 		const searchString = target.innerText.split(",");
 		setCity(searchString[0], searchString[1]);
@@ -28,7 +28,7 @@ const Input = ({ onChange, search, data, isSuccess, setCity, handleSubmit }) => 
 					onClick={handleSubmit}
 				/>
 			</form>
-			{isSuccess && data.data
+			{isSuccess && data.data && showCityList
 				? data.data.map(city => {
 						return (
 							<City

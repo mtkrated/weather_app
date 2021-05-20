@@ -8,6 +8,7 @@ const App = () => {
 	const [search, setSearch] = useState("");
 	const [city, setCity] = useState(null);
 	const [isWeather, setIsWeather] = useState(false);
+	const [showCityList, setShowCityList] = useState(true);
 
 	//fetch list of cities from api that match the user input
 	//when user input is greater than 2
@@ -38,6 +39,7 @@ const App = () => {
 
 	/*handle the current value when the user types or searches*/
 	const handleSearch = ({ target }) => {
+		setShowCityList(true);
 		setSearch(target.value);
 	};
 
@@ -49,6 +51,7 @@ const App = () => {
 	const handleCityClick = (cityName, countryCode) => {
 		setIsWeather(true);
 		setCity([cityName, countryCode]);
+		setShowCityList(false);
 	};
 
 	/*
@@ -60,6 +63,8 @@ const App = () => {
 		e.preventDefault();
 		setIsWeather(true);
 		setCity([search, null]);
+		setShowCityList(false);
+		setSearch("");
 	};
 	return (
 		<div>
@@ -70,6 +75,7 @@ const App = () => {
 				data={cityData}
 				isSuccess={cityIsSuccess}
 				setCity={handleCityClick}
+				showCityList={showCityList}
 			/>
 			{isWeather ? (
 				<CurrentWeather
