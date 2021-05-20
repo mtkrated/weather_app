@@ -18,4 +18,6 @@ body {
 	line-height: 1.6rem;
 	font-family: "Poppins", sans-serif;
 	background: var(--clr-primary);
+	display: grid;
+	place-items: center;
 }

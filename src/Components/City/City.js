@@ -3,10 +3,10 @@ import style from "../../styles/city.module.css";
 
 const City = props => {
 	return (
-		<li
+		<div
 			className={style.city}
 			onClick={props.handleClick}
-		>{`${props.city}, ${props.countryCode}`}</li>
+		>{`${props.city}, ${props.countryCode}`}</div>
 	);
 };
 

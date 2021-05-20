@@ -17,7 +17,7 @@ const App = () => {
 		["search", search],
 		() => api.fetchCities(search),
 		{
-			enabled: search.length > 2,
+			enabled: search.length > 2 && search.length !== 0,
 			refetchOnReconnect: false,
 			refetchOnWindowFocus: false,
 			cacheTime: 1000 * 60,
@@ -66,6 +66,21 @@ const App = () => {
 		setShowCityList(false);
 		setSearch("");
 	};
+
+	/*
+	 *function to remove the city recommendation list on input blur or out of focus
+	 */
+	const handleBlur = () => {
+		setShowCityList(false);
+	};
+
+	/*
+	 *handle adding back the city recommendation on input focus
+	 */
+	const handleFocus = () => {
+		setShowCityList(true);
+	};
+
 	return (
 		<div>
 			<Input
@@ -76,6 +91,8 @@ const App = () => {
 				isSuccess={cityIsSuccess}
 				setCity={handleCityClick}
 				showCityList={showCityList}
+				handleBlur={handleBlur}
+				handleFocus={handleFocus}
 			/>
 			{isWeather ? (
 				<CurrentWeather

@@ -1,9 +1,15 @@
 .city {
-	background-color: #fff;
 	font-size: 1.6rem;
 	font-weight: 400;
-	color: lightblue;
 	padding: 0.5em;
-	list-style: none;
 	cursor: default;
+}
+
+.city:hover {
+	background-color: lightblue;
+}
+
+.city:hover:last-child {
+	border-bottom-left-radius: inherit;
+	border-bottom-right-radius: inherit;
 }
