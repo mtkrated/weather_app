@@ -1,0 +1,9 @@
+.city {
+	background-color: #fff;
+	font-size: 1.6rem;
+	font-weight: 400;
+	color: lightblue;
+	padding: 0.5em;
+	list-style: none;
+	cursor: default;
+}
