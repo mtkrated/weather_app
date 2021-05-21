@@ -4,7 +4,7 @@ const weatherApiKey = "d2f652f51c1fadbc0ebbd7fa064b4716";
 const api = {
 	fetchCities: async city => {
 		const response = await fetch(
-			`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=5&offset=0&namePrefix=${city}`,
+			`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=10&offset=0&namePrefix=${city}`,
 			{
 				method: "GET",
 				headers: {

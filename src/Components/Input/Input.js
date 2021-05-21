@@ -13,7 +13,6 @@ const Input = ({
 	handleSubmit,
 	showCityList,
 	handleBlur,
-	handleFocus,
 }) => {
 	const handleClick = ({ target }) => {
 		const searchString = target.innerText.split(",");
@@ -29,7 +28,6 @@ const Input = ({
 					onChange={onChange}
 					placeholder="Search a city"
 					onBlur={() => handleBlur()}
-					onFocus={() => handleFocus()}
 				/>
 				<FontAwesomeIcon
 					icon={faSearch}

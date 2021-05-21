@@ -74,13 +74,6 @@ const App = () => {
 		setShowCityList(false);
 	};
 
-	/*
-	 *handle adding back the city recommendation on input focus
-	 */
-	const handleFocus = () => {
-		setShowCityList(true);
-	};
-
 	return (
 		<div>
 			<Input
@@ -92,7 +85,6 @@ const App = () => {
 				setCity={handleCityClick}
 				showCityList={showCityList}
 				handleBlur={handleBlur}
-				handleFocus={handleFocus}
 			/>
 			{isWeather ? (
 				<CurrentWeather
