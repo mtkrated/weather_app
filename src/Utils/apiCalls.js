@@ -1,5 +1,5 @@
-const cityApiKey = "ce90fc468fmshf53d29d768b06f5p1b550fjsn661b20185864";
-const weatherApiKey = "d2f652f51c1fadbc0ebbd7fa064b4716";
+const cityApiKey = process.env.REACT_APP_CITY_API_KEY;
+const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const api = {
 	fetchCities: async city => {

@@ -4,6 +4,9 @@ import { useQuery } from "react-query";
 import api from "../../Utils/apiCalls";
 import Input from "../Input/Input";
 
+//TODO create some test cases
+//TODO refractor code
+//TODO fix searching error
 const App = () => {
 	const [search, setSearch] = useState("");
 	const [city, setCity] = useState(null);
