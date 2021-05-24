@@ -9,16 +9,13 @@ const Input = ({
 	search,
 	data,
 	isSuccess,
-	setCity,
+	setLat,
+	setLon,
 	handleSubmit,
 	showCityList,
-	handleBlur,
+	handleCityClick,
+	// handleBlur,
 }) => {
-	const handleClick = ({ target }) => {
-		const searchString = target.innerText.split(",");
-		setCity(searchString[0], searchString[1]);
-	};
-
 	return (
 		<div className={style.search}>
 			<form action="#" className={style.form} onSubmit={handleSubmit}>
@@ -27,7 +24,7 @@ const Input = ({
 					value={search}
 					onChange={onChange}
 					placeholder="Search a city"
-					onBlur={() => handleBlur()}
+					// onBlur={() => handleBlur()}
 				/>
 				<FontAwesomeIcon
 					icon={faSearch}
@@ -37,22 +34,23 @@ const Input = ({
 					onClick={handleSubmit}
 				/>
 			</form>
-			<>
-				{isSuccess && data.data && showCityList
-					? data.data.map(city => {
-							return (
-								<City
-									city={city.name}
-									countryCode={
-										city.countryCode
-									}
-									key={city.id}
-									handleClick={handleClick}
-								/>
-							);
-					  })
-					: null}
-			</>
+
+			{isSuccess && data.data && showCityList
+				? data.data.map(city => {
+						return (
+							<City
+								city={city.name}
+								countryCode={city.countryCode}
+								key={city.id}
+								setLat={setLat}
+								setLon={setLon}
+								handleCityClick={handleCityClick}
+								lat={city.latitude}
+								lon={city.longitude}
+							/>
+						);
+				  })
+				: null}
 		</div>
 	);
 };
