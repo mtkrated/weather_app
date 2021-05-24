@@ -27,6 +27,18 @@ const api = {
 		);
 		return response.json();
 	},
+	fetchHourlyForecast: async (city, countryCode = null) => {
+		if (countryCode) {
+			const response = await fetch(
+				`https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&appid=${weatherApiKey}`
+			);
+			return response.json();
+		}
+		const response = await fetch(
+			`https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}`
+		);
+		return response.json();
+	},
 };
 
 export default api;

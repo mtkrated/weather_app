@@ -3,6 +3,7 @@ import CurrentWeather from "../CurrentWeather/CurrentWeather";
 import { useQuery } from "react-query";
 import api from "../../Utils/apiCalls";
 import Input from "../Input/Input";
+import useCity from "../../Hooks/useCity";
 
 //TODO create some test cases
 //TODO refractor code
@@ -12,20 +13,11 @@ const App = () => {
 	const [city, setCity] = useState(null);
 	const [isWeather, setIsWeather] = useState(false);
 	const [showCityList, setShowCityList] = useState(true);
+	const { cityData, cityIsSuccess } = useCity(search);
 
 	//fetch list of cities from api that match the user input
 	//when user input is greater than 2
 	//otherwise do nothing
-	const { data: cityData, isSuccess: cityIsSuccess } = useQuery(
-		["search", search],
-		() => api.fetchCities(search),
-		{
-			enabled: search.length > 2 && search.length !== 0,
-			refetchOnReconnect: false,
-			refetchOnWindowFocus: false,
-			cacheTime: 1000 * 60,
-		}
-	);
 
 	//get the current weather when the isWeather is set to true
 	//otherwise do nothing
