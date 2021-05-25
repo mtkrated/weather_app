@@ -17,3 +17,8 @@ body {
 	background: var(--clr-background);
 	min-height: 100vh;
 }
+
+main {
+	display: grid;
+	place-items: center;
+}
