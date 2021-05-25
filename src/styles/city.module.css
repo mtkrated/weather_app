@@ -2,6 +2,7 @@
 	cursor: default;
 	margin-top: 0.2rem;
 	padding: 0.2rem 0.75rem;
+	transition: all ease-in 200ms;
 }
 
 .city:hover {
