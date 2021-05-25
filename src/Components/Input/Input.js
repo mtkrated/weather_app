@@ -1,56 +1,34 @@
 import React from "react";
 import style from "../../styles/search.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import City from "../City/City";
+import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const Input = ({
-	onChange,
-	search,
-	data,
-	isSuccess,
-	setLat,
-	setLon,
-	handleSubmit,
-	showCityList,
-	handleCityClick,
-	// handleBlur,
-}) => {
+const Input = ({ onChange, searchTerm, handleSubmit, handleClear }) => {
 	return (
-		<div className={style.search}>
-			<form action="#" className={style.form} onSubmit={handleSubmit}>
-				<input
-					type="text"
-					value={search}
-					onChange={onChange}
-					placeholder="Search a city"
-					// onBlur={() => handleBlur()}
-				/>
+		<div className={style.search} onSubmit={handleSubmit}>
+			<input
+				type="text"
+				value={searchTerm}
+				onChange={onChange}
+				placeholder="Search a city"
+				// onBlur={() => handleBlur()}
+			/>
+			{searchTerm.length > 0 && (
 				<FontAwesomeIcon
-					icon={faSearch}
-					size={"2x"}
-					className={style.search__icon}
-					type="submit"
-					onClick={handleSubmit}
+					icon={faTimes}
+					size={"1x"}
+					className={style.clear_icon}
+					onClick={handleClear}
 				/>
-			</form>
-
-			{isSuccess && data.data && showCityList
-				? data.data.map(city => {
-						return (
-							<City
-								city={city.name}
-								countryCode={city.countryCode}
-								key={city.id}
-								setLat={setLat}
-								setLon={setLon}
-								handleCityClick={handleCityClick}
-								lat={city.latitude}
-								lon={city.longitude}
-							/>
-						);
-				  })
-				: null}
+			)}
+			{searchTerm.length > 0 && <div className={style.break}></div>}
+			<FontAwesomeIcon
+				icon={faSearch}
+				size={"1x"}
+				className={style.search_icon}
+				type="submit"
+				onClick={handleSubmit}
+			/>
 		</div>
 	);
 };

@@ -1,5 +1,6 @@
 :root {
 	--clr-primary: hsl(240, 14%, 29%);
+	--clr-background: hsl(196, 88%, 90%);
 }
 
 *,
@@ -10,14 +11,9 @@
 	padding: 0;
 }
 
-html {
-	font-size: 62.5%;
-}
-
 body {
-	line-height: 1.6rem;
 	font-family: "Poppins", sans-serif;
-	background: var(--clr-primary);
-	display: grid;
-	place-items: center;
+	font-size: 1rem;
+	background: var(--clr-background);
+	min-height: 100vh;
 }
