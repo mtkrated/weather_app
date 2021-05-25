@@ -14,15 +14,17 @@ const Search = ({
 	handleClear,
 	showCityList,
 	handleCityClick,
-	// handleBlur,
+	handleBlur,
+	handleFocus,
 }) => {
 	return (
-		<div className={style.container}>
+		<div className={style.container} onBlur={() => handleBlur()}>
 			<Input
 				onChange={onChange}
 				searchTerm={searchTerm}
 				handleSubmit={handleSubmit}
 				handleClear={handleClear}
+				handleFocus={handleFocus}
 			/>
 			{isSuccess && data.data && showCityList
 				? data.data.map(city => {

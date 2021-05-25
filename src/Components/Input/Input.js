@@ -3,7 +3,7 @@ import style from "../../styles/search.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const Input = ({ onChange, searchTerm, handleSubmit, handleClear }) => {
+const Input = ({ onChange, searchTerm, handleSubmit, handleClear, handleFocus }) => {
 	return (
 		<div className={style.search} onSubmit={handleSubmit}>
 			<input
@@ -11,7 +11,7 @@ const Input = ({ onChange, searchTerm, handleSubmit, handleClear }) => {
 				value={searchTerm}
 				onChange={onChange}
 				placeholder="Search a city"
-				// onBlur={() => handleBlur()}
+				onFocus={handleFocus}
 			/>
 			{searchTerm.length > 0 && (
 				<FontAwesomeIcon

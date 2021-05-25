@@ -59,6 +59,10 @@ const App = () => {
 		setShowCityList(false);
 	};
 
+	const handleFocus = () => {
+		setShowCityList(true);
+	};
+
 	return (
 		<main>
 			<Search
@@ -73,6 +77,7 @@ const App = () => {
 				handleClear={handleClear}
 				showCityList={showCityList}
 				handleBlur={handleBlur}
+				handleFocus={handleFocus}
 			></Search>
 			{isSearchTerm ? <Weather lat={lat} lon={lon} /> : null}
 		</main>

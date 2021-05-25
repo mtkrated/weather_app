@@ -6,6 +6,7 @@ const City = ({ city, countryCode, setLat, setLon, lat, lon, handleCityClick }) 
 		<div
 			className={style.city}
 			onClick={() => handleCityClick(lat, lon)}
+			onMouseDown={e => e.preventDefault()}
 		>{`${city}, ${countryCode}`}</div>
 	);
 };
