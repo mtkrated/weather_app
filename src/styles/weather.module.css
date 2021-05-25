@@ -1,0 +1,5 @@
+.weather {
+	display: grid;
+	margin-top: 10rem;
+	place-items: center;
+}

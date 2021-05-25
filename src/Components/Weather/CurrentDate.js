@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../styles/current_weather.module.css";
+import style from "../../styles/date.module.css";
 
 const CurrentDate = () => {
 	const date = Date.now();
@@ -12,7 +12,7 @@ const CurrentDate = () => {
 	};
 	return (
 		<span
-			className={style.dateTime}
+			className={style.date}
 		>{`${formattedDate.time}, ${formattedDate.weekday} ${formattedDate.month} ${formattedDate.day}`}</span>
 	);
 };

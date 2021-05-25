@@ -1,23 +1,22 @@
 import React from "react";
 import useWeather from "../../Hooks/useWeather";
 import CurrentWeather from "./CurrentWeather";
-import CurrentDate from "../Weather/Date";
+
+import style from "../../styles/weather.module.css";
 
 const Weather = ({ lat, lon }) => {
 	const { weatherData, weatherError, weatherIsError, weatherIsLoading, weatherIsSuccess } =
 		useWeather(lat, lon);
-	return (
-		<div>
-			<CurrentDate />
-			<CurrentWeather
-				data={weatherData}
-				error={weatherError}
-				isLoading={weatherIsLoading}
-				isSuccess={weatherIsSuccess}
-				isError={weatherIsError}
-			/>
-		</div>
-	);
+
+	if (weatherIsError) return <div className={style.weather}>{weatherError.message}</div>;
+	else if (weatherIsLoading) return <div className={style.weather}>Loading...</div>;
+	else if (weatherIsSuccess && weatherData)
+		return (
+			<div className={style.weather}>
+				<CurrentWeather data={weatherData} />
+			</div>
+		);
+	return null;
 };
 
 export default Weather;

@@ -1,9 +1,73 @@
-.dateTime {
-	font-size: 1.6rem;
-	color: #fff;
+:root {
+	--clr-background: #fff;
+	--clr-text-color: rgb(124, 120, 120);
 }
 
-h1 {
-	color: #fff;
-	margin-top: 0.3rem;
+.weather__current {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	padding: 2em;
+	background-color: lightgrey;
+	align-items: center;
+	justify-content: center;
+}
+
+.weather__current h2 {
+	font-size: 2rem;
+	text-transform: capitalize;
+}
+
+.date {
+	color: var(--clr-text-color);
+	font-size: 1.2rem;
+}
+
+.temperature {
+	display: flex;
+	gap: 1em;
+	justify-content: center;
+	align-items: center;
+}
+
+.temperature img {
+	width: 100px;
+	height: 100px;
+}
+
+.temperature span {
+	font-size: 3rem;
+	font-weight: 700;
+	color: #000;
+}
+
+.temperature span sup {
+	font-weight: 700;
+	color: inherit;
+}
+
+.info_container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 4em;
+}
+
+.more_info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+.more_info h4 {
+	color: var(--clr-text-color);
+	font-weight: 700;
+	font-size: 1.2rem;
+}
+
+.more_info h3 {
+	color: #000;
+	font-size: 1.5rem;
 }
