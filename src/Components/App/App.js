@@ -6,7 +6,8 @@ import Weather from "../Weather/Weather";
 
 //TODO create some test cases
 //TODO refractor code
-//TODO fix searchTerming error
+//TODO fix searchTermi
+//TODO handle on submit search
 
 const App = () => {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -39,9 +40,7 @@ const App = () => {
 	 */
 
 	const handleCityClick = (lat, lon) => {
-		console.log(lat);
 		setSearchWeather(false);
-		console.log(searchWeather);
 		search(lat, lon);
 	};
 

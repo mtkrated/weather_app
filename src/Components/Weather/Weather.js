@@ -2,6 +2,8 @@ import React from "react";
 import CurrentWeather from "./CurrentWeather";
 
 import style from "../../styles/weather.module.css";
+import DayForecastCard from "./DayForecastCard";
+import { getDay } from "../../Utils/date";
 
 const Weather = ({
 	weatherData,
@@ -16,6 +18,16 @@ const Weather = ({
 		return (
 			<div className={style.weather}>
 				<CurrentWeather data={weatherData} />
+				<div className="daily_forecast">
+					{weatherData.daily.map((day, index) => (
+						<DayForecastCard
+							key={index}
+							date={getDay(index)}
+							humidity={day.humidity}
+							icon={day.weather[0].icon}
+						/>
+					))}
+				</div>
 			</div>
 		);
 	return null;
