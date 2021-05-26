@@ -1,24 +1,36 @@
 import React, { useState } from "react";
 import useCity from "../../Hooks/useCity";
+import useWeather from "../../Hooks/useWeather";
 import Search from "../Search/Search";
 import Weather from "../Weather/Weather";
 
 //TODO create some test cases
 //TODO refractor code
 //TODO fix searchTerming error
+
 const App = () => {
-	const [searchTerm, setsearchTerm] = useState("");
-	const [isSearchTerm, setIsSearchTerm] = useState(false);
+	const [searchTerm, setSearchTerm] = useState("");
 	const [showCityList, setShowCityList] = useState(true);
-	const { cityData, cityIsSuccess } = useCity(searchTerm);
+	const [searchWeather, setSearchWeather] = useState(false);
 	const [lat, setLat] = useState(null);
 	const [lon, setLon] = useState(null);
+	const { cityData, cityIsSuccess } = useCity(searchTerm);
+	const { weatherData, weatherError, weatherIsError, weatherIsLoading, weatherIsSuccess } =
+		useWeather(lat, lon, searchWeather);
 	/*
 	 *handle the current value when the user types or searchTermes
 	 */
 	const handleSearchTerm = ({ target }) => {
 		setShowCityList(true);
-		setsearchTerm(target.value);
+		setSearchTerm(target.value);
+	};
+
+	const search = (lat, lon) => {
+		setLat(lat);
+		setLon(lon);
+		setShowCityList(false);
+		setSearchTerm("");
+		setSearchWeather(true);
 	};
 
 	/*
@@ -27,10 +39,10 @@ const App = () => {
 	 */
 
 	const handleCityClick = (lat, lon) => {
-		setIsSearchTerm(true);
-		setLat(lat);
-		setLon(lon);
-		setShowCityList(false);
+		console.log(lat);
+		setSearchWeather(false);
+		console.log(searchWeather);
+		search(lat, lon);
 	};
 
 	/*
@@ -41,15 +53,14 @@ const App = () => {
 	const handleSubmit = e => {
 		if (searchTerm.length > 0) {
 			e.preventDefault();
-			setIsSearchTerm(true);
 			setShowCityList(false);
-			setsearchTerm("");
+			setSearchTerm("");
 		}
 		return null;
 	};
 
 	const handleClear = () => {
-		setsearchTerm("");
+		setSearchTerm("");
 	};
 
 	/*
@@ -72,14 +83,19 @@ const App = () => {
 				handleCityClick={handleCityClick}
 				data={cityData}
 				isSuccess={cityIsSuccess}
-				setLat={setLat}
-				setLon={setLon}
 				handleClear={handleClear}
 				showCityList={showCityList}
 				handleBlur={handleBlur}
 				handleFocus={handleFocus}
-			></Search>
-			{isSearchTerm ? <Weather lat={lat} lon={lon} /> : null}
+			/>
+
+			<Weather
+				weatherData={weatherData}
+				weatherError={weatherError}
+				weatherIsError={weatherIsError}
+				weatherIsLoading={weatherIsLoading}
+				weatherIsSuccess={weatherIsSuccess}
+			/>
 		</main>
 	);
 };

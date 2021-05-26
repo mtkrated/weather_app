@@ -1,14 +1,15 @@
 import { useQuery } from "react-query";
 import api from "../Utils/apiCalls";
 
-const useWeather = (lat, lon) => {
+const useWeather = (lat, lon, searchWeather) => {
 	const {
 		data: weatherData,
 		isLoading: weatherIsLoading,
 		isSuccess: weatherIsSuccess,
 		isError: weatherIsError,
 		error: weatherError,
-	} = useQuery("weather", () => api.fetchWeather(lat, lon), {
+	} = useQuery(["weather", lat, lon], () => api.fetchWeather(lat, lon), {
+		enabled: searchWeather,
 		refetchOnReconnect: false,
 		refetchOnWindowFocus: false,
 		cacheTime: 10000,

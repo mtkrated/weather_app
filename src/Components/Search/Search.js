@@ -8,8 +8,6 @@ const Search = ({
 	searchTerm,
 	data,
 	isSuccess,
-	setLat,
-	setLon,
 	handleSubmit,
 	handleClear,
 	showCityList,
@@ -33,8 +31,6 @@ const Search = ({
 								city={city.name}
 								countryCode={city.countryCode}
 								key={city.id}
-								setLat={setLat}
-								setLon={setLon}
 								handleCityClick={handleCityClick}
 								lat={city.latitude}
 								lon={city.longitude}

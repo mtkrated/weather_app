@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../../styles/city.module.css";
 
-const City = ({ city, countryCode, setLat, setLon, lat, lon, handleCityClick }) => {
+const City = ({ city, countryCode, lat, lon, handleCityClick }) => {
 	return (
 		<div
 			className={style.city}
