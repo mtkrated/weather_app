@@ -16,9 +16,6 @@ export const getDay = idx => {
 		case 0:
 			day = "Today";
 			break;
-		case 1:
-			day = "Tomorrow";
-			break;
 		default:
 			const formattedDate = currentDate(date.setDate(date.getDate() + idx));
 			day = `${formattedDate.day} ${formattedDate.month}`;

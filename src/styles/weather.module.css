@@ -1,5 +1,33 @@
+.loading {
+	display: grid;
+	place-items: center;
+	margin-top: 20rem;
+}
+
 .weather {
 	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 1fr 1rem 1fr;
+	gap: 0.75rem;
 	margin-top: 10rem;
 	place-items: center;
+	padding: 0.75rem;
+	border-radius: 10px;
+	background-color: #fff;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 12px;
+}
+
+h3 {
+	grid-row: 2;
+	grid-column: span 4;
+	justify-self: left;
+	margin-left: 2rem;
+}
+
+.daily_forecast {
+	display: flex;
+	gap: 1em;
+	grid-column: span 4;
+	grid-row: 3 / span 2;
+	cursor: pointer;
 }

@@ -13,12 +13,18 @@ const Weather = ({
 	weatherIsSuccess,
 }) => {
 	if (weatherIsError) return <div className={style.weather}>{weatherError.message}</div>;
-	else if (weatherIsLoading) return <div className={style.weather}>Loading...</div>;
+	else if (weatherIsLoading)
+		return (
+			<div className={style.loading}>
+				<h1>Loading...</h1>
+			</div>
+		);
 	else if (weatherIsSuccess && weatherData)
 		return (
 			<div className={style.weather}>
 				<CurrentWeather data={weatherData} />
-				<div className="daily_forecast">
+				<h3>8-day Forecast</h3>
+				<div className={style.daily_forecast}>
 					{weatherData.daily.map((day, index) => (
 						<DayForecastCard
 							key={index}

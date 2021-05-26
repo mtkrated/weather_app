@@ -5,43 +5,45 @@
 .weather__current {
 	display: flex;
 	flex-direction: column;
-	gap: 1em;
-	padding: 2em;
-	background-color: lightgrey;
+	grid-column: 1;
+	grid-row: 1 / 1;
+	gap: 0.5em;
+	padding: 1em;
 	align-items: center;
 	justify-content: center;
 }
 
 .weather__current h2 {
-	font-size: 2rem;
+	font-size: 1rem;
 	text-transform: capitalize;
 }
 
 .date {
+	font-size: 0.7rem;
 	color: var(--clr-text-color);
-	font-size: 1.2rem;
 }
 
 .temperature {
 	display: flex;
-	gap: 1em;
+	gap: 0.75em;
 	justify-content: center;
 	align-items: center;
 }
 
 .temperature img {
-	width: 100px;
-	height: 100px;
+	width: 75px;
+	height: 75px;
 }
 
 .temperature span {
-	font-size: 3rem;
+	font-size: 1.1rem;
 	font-weight: 700;
 	color: #000;
 }
 
 .temperature span sup {
 	font-weight: 700;
+	font-size: 0.75rem;
 	color: inherit;
 }
 
@@ -49,7 +51,7 @@
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	gap: 4em;
+	gap: 1em;
 }
 
 .more_info {
@@ -57,16 +59,16 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 1em;
+	gap: 0.5em;
 }
 
 .more_info h4 {
 	color: var(--clr-text-color);
 	font-weight: 700;
-	font-size: 1.2rem;
+	font-size: 0.85rem;
 }
 
 .more_info h3 {
 	color: #000;
-	font-size: 1.5rem;
+	font-size: 0.85rem;
 }
