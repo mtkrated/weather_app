@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useCity from "../../Hooks/useCity";
 import useWeather from "../../Hooks/useWeather";
 import Search from "../Search/Search";
@@ -15,6 +15,7 @@ const App = () => {
 	const [searchWeather, setSearchWeather] = useState(false);
 	const [lat, setLat] = useState(null);
 	const [lon, setLon] = useState(null);
+	const [selected, setSelected] = useState(0);
 	const { cityData, cityIsSuccess } = useCity(searchTerm);
 	const { weatherData, weatherError, weatherIsError, weatherIsLoading, weatherIsSuccess } =
 		useWeather(lat, lon, searchWeather);
@@ -31,6 +32,7 @@ const App = () => {
 		setLon(lon);
 		setShowCityList(false);
 		setSearchTerm("");
+		setSelected(0);
 		setSearchWeather(true);
 	};
 
@@ -73,6 +75,8 @@ const App = () => {
 		setShowCityList(true);
 	};
 
+	useEffect(() => {}, [selected, setSelected]);
+
 	return (
 		<main>
 			<Search
@@ -94,6 +98,8 @@ const App = () => {
 				weatherIsError={weatherIsError}
 				weatherIsLoading={weatherIsLoading}
 				weatherIsSuccess={weatherIsSuccess}
+				selected={selected}
+				setSelected={setSelected}
 			/>
 		</main>
 	);

@@ -62,13 +62,14 @@
 	gap: 0.5em;
 }
 
-.more_info h4 {
+.more_info > h4 {
 	color: var(--clr-text-color);
 	font-weight: 700;
-	font-size: 0.85rem;
+	font-size: 0.75rem;
 }
 
-.more_info h3 {
+.humidity {
 	color: #000;
-	font-size: 0.85rem;
+	font-weight: 400;
+	font-size: 0.75rem;
 }
